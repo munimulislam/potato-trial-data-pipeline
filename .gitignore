@@ -147,3 +147,7 @@ data/**
 
 .dg
 .tmp_**
+.telemetry
+history
+schedules
+storage

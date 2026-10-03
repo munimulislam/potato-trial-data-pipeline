@@ -41,6 +41,7 @@ def assets(
     yield from dlt.run(context=context, dlt_source=trial_data_source(str(path)))
 
     archive_file(Path(load_config().paths.archive), path)
+    context.log.info(f"Archieved file: {path.name}")
 
 
 ingest_job = dg.define_asset_job("file_ingest", selection=[assets])
