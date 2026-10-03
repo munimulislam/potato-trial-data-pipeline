@@ -1,0 +1,7 @@
+paths:
+  incoming: data/incoming
+  archive: data/archive
+  duckdb: data/trial.duckdb
+
+excel:
+  extensions: [".xlsx", ".xls"]
