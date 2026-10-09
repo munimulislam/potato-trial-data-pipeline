@@ -1,5 +1,0 @@
-concurrency:
-  runs:
-    tag_concurrency_limits:
-      - key: "duckdb"
-        limit: 1

@@ -151,3 +151,10 @@ data/**
 history
 schedules
 storage
+logs
+
+
+dg_home/**
+!dg_home/dagster.yaml
+tests/fixtures/**
+!tests/fixtures/.gitkeep

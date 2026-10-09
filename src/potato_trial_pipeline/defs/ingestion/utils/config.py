@@ -19,24 +19,21 @@ class PathConfig(BaseModel):
     duckdb: str
 
 
-class ExcelConfig(BaseModel):
-    model_config = ConfigDict(frozen=True)
-
-    extensions: list[str]
-
-
-class DataIngestConfig(BaseModel):
+class IngestPipelineConfig(BaseModel):
     model_config = ConfigDict(frozen=True)
 
     paths: PathConfig
-    excel: ExcelConfig
+    file_extensions: list[str]
+    columns: list[str]
 
 
 @lru_cache
-def load_config(
-    config_path: str = str(Path(__file__).parent.parent / "pipeline.yaml"),
-) -> DataIngestConfig:
+def load_config(config_path="pipeline.yaml") -> IngestPipelineConfig:
     path = Path(config_path)
+
+    if not path.exists():
+        raise FileNotFoundError(f"File pipeline.yaml not found in project root")
+
     config_dict = yaml.safe_load(path.read_text(encoding="utf-8"))
 
-    return DataIngestConfig.model_validate(config_dict)
+    return IngestPipelineConfig.model_validate(config_dict)
