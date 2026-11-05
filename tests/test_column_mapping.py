@@ -4,11 +4,11 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from potato_trial_pipeline.defs.ingestion.dlt.assets import (
+from potato_trial_pipeline.defs.ingestion.assets import (
     clean_column_name,
 )
-from potato_trial_pipeline.defs.ingestion.dlt.trial import Trial
-from potato_trial_pipeline.defs.ingestion.utils.config import load_config
+from potato_trial_pipeline.ingestion.trial import Trial
+from potato_trial_pipeline.ingestion.utils.config import load_config
 
 FIXTURES = Path(__file__).parent / "fixtures"
 SAMPLE_FILES = sorted(FIXTURES.glob("*.xlsx*"))

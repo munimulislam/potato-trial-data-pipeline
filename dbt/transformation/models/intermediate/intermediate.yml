@@ -1,0 +1,52 @@
+models:
+  - name: int_trait_plot_level
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - experiment_name
+              - variety
+              - plot
+              - trait
+
+
+    columns:
+      - name: _dlt_id
+        data_tests:
+          - not_null
+
+      - name: trait
+        data_tests:
+          - not_null
+
+      - name: value
+        data_tests:
+          - not_null
+
+      - name: experiment_name
+        data_tests:
+          - not_null
+
+      - name: variety
+        data_tests:
+          - not_null
+
+      - name: year
+        data_tests:
+          - not_null
+
+      - name: plot
+        data_tests:
+          - not_null
+        
+      - name: location
+        data_tests:
+          - not_null
+        
+      - name: env_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_env_type
+              arguments:
+                values: ['med', 'ne']

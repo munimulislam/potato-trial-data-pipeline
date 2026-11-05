@@ -1,0 +1,54 @@
+trait,data_type,trait_group,label,scale,direction,valid_min,valid_max,allowed_values,synonyms_keywords,description,agent_enabled
+tubersize,float,"Tuber Morphology, Yield Component",Tuber Size,Scale_1_9,High,1,9,,"tuber size, grade, diameter",Visual or physical grading of average tuber size.,TRUE
+eveness,float,"Tuber Morphology, Visual Quality",Tuber Size Evenness,Scale_1_9,High,1,9,,evenness,Visual grading score of the size evenness.,TRUE
+appearance,float,"Tuber Morphology, Visual Quality",General Appearance,Scale_1_9,High,1,9,,"appearance, visual quality, aesthetic",Overall visual appeal score of the unpeeled tuber.,TRUE
+tubnumbers,float,"Yield Component, Agronomic Quality",Tuber Number Per Plant,Scale_1_9,High,1,9,,"tuber number, tuber count",Commercial tubers per plant.,TRUE
+ffscab,float,"Field Pathology, Visual Quality, Disease",Common Scab,Scale_1_9,High,1,9,,"common scab, surface pitting",Common Scab lesions.,TRUE
+ffdefects,float,"Field Pathology, Visual Quality",Total External Defects,Scale_1_9,High,1,9,,"external defects, cracks, greening",Physical external abnormalities.,TRUE
+ffhollowh,float,"Field Pathology, Visual Quality",Hollow Heart Severity,Scale_1_9,High,1,9,,"hollow heart, internal cavity",Internal cavities in center tissues.,TRUE
+ff_irs,float,"Field Pathology, Disease, Visual Quality",Internal Rust Spot,Scale_1_9,High,1,9,,"internal rust spot, irs, brown spot",Internal localized cell necrosis.,TRUE
+eyedepth,float,"Tuber Morphology, Visual Quality",Eye Depth,Scale_1_9,High,1,9,,"eye depth, deep eyes",Depth of tuber eyes.,TRUE
+o_a_score,float,"Agronomic Quality, Visual Quality",Overall Appearance Score,Scale_1_9,High,1,9,,overall appearance score,Breeders assessment of overall potato appearance.,TRUE
+tubshape,str,"Tuber Morphology, Visual Quality",Tuber Shape,Categorical,Neutral,,,Not Decided,"shape, form",Geometric form of the tuber.,FALSE
+skincolour,str,"Tuber Morphology, Visual Quality",Skin Colour,Categorical,Neutral,,,Not Decided,"skin color, rind color",Predominant external surface pigmentation color.,FALSE
+fleshcolou,str,"Tuber Morphology, Visual Quality",Flesh Colour,Categorical,Neutral,,,Not Decided,"flesh color, internal color",Internal cross-section tissue pigmentation color.,FALSE
+dryness,float,"Culinary Quality, Agronomic Quality",Organoleptic Dryness,Scale_1_9,High,1,9,,"dryness, moisture perception",Sensory eating quality metric.,TRUE
+drymatter,float,"Agronomic Quality, Processing Performance",Dry Matter Content,Scale_0_100,High,0,100,,"dry matter, solids percentage",Percentage of dry material remaining after dehydration.,TRUE
+yield,float,"Yield Component, Agronomic Quality",Final Total Yield,Continuous,High,,,,"yield, final yield, tonnage",Total weight of harvested tubers extrapolated to standardized units.,TRUE
+uniformity,float,"Tuber Morphology, Visual Quality",Uniformity,Scale_1_9,High,1,9,,uniformity,Overall morphological and size uniformity score.,TRUE
+dsntgrtn,float,Culinary Quality,Boiling Disintegration,Scale_1_9,High,1,9,,"disintegration, sloughing",Degree of outer physical sloughing/disintegration when boiled.,TRUE
+mealiness,float,Culinary Quality,Textural Mealiness,Scale_1_9,High,1,9,,"mealiness, floury, starchy",Sensory evaluation tracking floury starch fracturing.,TRUE
+utilisatio,float,"Culinary Quality, Processing Performance",End Use Utilisation,Scale_1_9,High,1,9,,"utilisation, market fitness",Multi-purpose cooking utility fitness.,TRUE
+acb,float,"Culinary Quality, Visual Quality",After Cooking Blackening,Scale_1_9,High,1,9,,"acb, after cooking blackening, graying",Enzymatic iron-chlorogenic acid oxidation browning post-cooking.,TRUE
+ovall_cook,float,Culinary Quality,Overall Cooking Score,Scale_1_9,High,1,9,,"overall cooking, culinary value",Consolidated overall kitchen sensory score.,TRUE
+crisp,float,"Processing Performance, Culinary Quality",Crispness Texture,Scale_1_9,High,1,9,,"crispness, crunchiness",Sensory crispness or structural rigidity snap evaluation.,TRUE
+coflscol,float,"Culinary Quality, Visual Quality",Cooked Flesh Colour,Scale_1_9,High,1,9,,"cooked flesh color, boiled color stability",Visual evaluation score tracking stability of color post-heat.,TRUE
+acb24,float,"Culinary Quality, Visual Quality",After Cooking Blackening (24H),Scale_1_9,High,1,9,,"acb24, cold graying, 24 hour discoloration",Severity index of discoloration 24 hours post-cooking.,TRUE
+flavour,float,Culinary Quality,Organoleptic Flavour,Scale_1_9,High,1,9,,"flavour, taste, aroma",Sensory panel preference tracking pleasant potato taste.,TRUE
+chipcolour,str,"Processing Performance, Visual Quality",Chip Colour,Categorical,Neutral,,,Not Decided,"chip colour, fry color, browning",Evaluates fry strip color from standard charts.,FALSE
+hunterl,float,"Colorimetry, Visual Quality",Hunter L Value,Scale_0_100,High,0,100,,"hunter l, lightness, reflectance",Lightness reflectance score.,TRUE
+huntera,float,"Colorimetry, Visual Quality",Hunter a Value,Scale_0_100,High,0,100,,"hunter a, chromaticity red green",Green-to-red axis shift.,TRUE
+hunterb,float,"Colorimetry, Visual Quality",Hunter b Value,Scale_0_100,High,0,100,,"hunter b, chromaticity yellow blue",Blue-to-yellow axis shift.,TRUE
+ffrots,float,"Field Pathology, Visual Quality",Tuber Rots,Scale_1_9,High,1,9,,"rots, soft rot, blight rot",Fungal or bacterial rots.,TRUE
+crisp_3m8d,float,"Processing Performance, Storage Quality",Crisp Score (3M @ 8C),Scale_1_9,High,1,9,,"crisp_3m8d, crispness, texture",Crispiness Evaluation after 3 months at 8 degree C.,TRUE
+crisp_3m4d,float,"Processing Performance, Storage Quality",Crisp Score (3M @ 4C),Scale_1_9,High,1,9,,"crisp_3m4d, crispness, texture",Crispiness Evaluation after 3 months at 4 degree C (Cold Stress).,TRUE
+crisp_6m8d,float,"Processing Performance, Storage Quality",Crisp Score (6M @ 8C),Scale_1_9,High,1,9,,"crisp_6m8d, crispness, texture",Crispiness Evaluation after 6 months at 8 degree C.,TRUE
+crisp_6m4d,float,"Processing Performance, Storage Quality",Crisp Score (6M @ 4C),Scale_1_9,High,1,9,,"crisp_6m4d, crispness, texture",Crispiness Evaluation after 6 months at 4 degree C (Cold Stress).,TRUE
+chip_3m8d,float,"Processing Performance, Storage Quality, Visual Quality",Chip Color Score (3M @ 8C),Scale_1_9,High,1,9,,"chip_3m8d, fry color, lts resistance",Chip Color Evaluation after 3 months at 8 degree C.,TRUE
+chip_3m4d,float,"Processing Performance, Storage Quality, Visual Quality",Chip Color Score (3M @ 4C),Scale_1_9,High,1,9,,"chip_3m4d, fry color, lts resistance",Chip Evaluation after 3 months at 4 degree C (Cold Stress).,TRUE
+chip_6m8d,float,"Processing Performance, Storage Quality, Visual Quality",Chip Color Score (6M @ 8C),Scale_1_9,High,1,9,,"chip_6m8d, fry color, lts resistance",Chip Evaluation after 6 months at 8 degree C.,TRUE
+chip_6m4d,float,"Processing Performance, Storage Quality, Visual Quality",Chip Color Score (6M @ 4C),Scale_1_9,High,1,9,,"chip_6m4d, fry color, lts resistance",Chip Evaluation after 6 months at 4degree C (Cold Stress).,TRUE
+huntl_3m8d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter L Value (3M @ 8C),Scale_0_100,High,0,100,,"huntl_3m8d, hunter l, lightness",Lightness reflectance Evaluation after 3 months at 8 degree C.,TRUE
+huntl_3m4d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter L Value (3M @ 4C),Scale_0_100,High,0,100,,"huntl_3m4d, hunter l, lightness",Lightness reflectance Evaluation after 3 months at 4 degree C (Cold Stress).,TRUE
+huntl_6m8d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter L Value (6M @ 8C),Scale_0_100,High,0,100,,"huntl_6m8d, hunter l, lightness",Lightness reflectance Evaluation after 6 months at 8 degree C.,TRUE
+huntl_6m4d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter L Value (6M @ 4C),Scale_0_100,High,0,100,,"huntl_6m4d, hunter l, lightness",Lightness reflectance Evaluation after 6 months at 4 degree C (Cold Stress).,TRUE
+hunta_3m8d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter a Value (3M @ 8C),Scale_0_100,High,0,100,,"hunta_3m8d, hunter a, red shift",Green-to-red axis shift Evaluation after 3 months at 8 degree C.,TRUE
+hunta_3m4d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter a Value (3M @ 4C),Scale_0_100,High,0,100,,"hunta_3m4d, hunter a, red shift",Green-to-red axis shift Evaluation after 3 months at 4 degree C (Cold Stress).,TRUE
+hunta_6m8d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter a Value (6M @ 8C),Scale_0_100,High,0,100,,"hunta_6m8d, hunter a, red shift",Green-to-red axis shift Evaluation after 6 months at 8 degree C.,TRUE
+hunta_6m4d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter a Value (6M @ 4C),Scale_0_100,High,0,100,,"hunta_6m4d, hunter a, red shift",Green-to-red axis shift Evaluation after 6 months at 4 degree C (Cold Stress).,TRUE
+huntb_3m8d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter b Value (3M @ 8C),Scale_0_100,High,0,100,,"huntb_3m8d, hunter b, yellow shift",Blue-to-yellow axis shift Evaluation after 3 months at 8 degree C.,TRUE
+huntb_3m4d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter b Value (3M @ 4C),Scale_0_100,High,0,100,,"huntb_3m4d, hunter b, yellow shift",Blue-to-yellow axis shift Evaluation after 3 months at 4 degree C (Cold Stress).,TRUE
+huntb_6m8d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter b Value (6M @ 8C),Scale_0_100,High,0,100,,"huntb_6m8d, hunter b, yellow shift",Blue-to-yellow axis shift Evaluation after 6 months at 8 degree C.,TRUE
+huntb_6m4d,float,"Colorimetry, Storage Quality, Visual Quality",Hunter b Value (6M @ 4C),Scale_0_100,High,0,100,,"huntb_6m4d, hunter b, yellow shift",Blue-to-yellow axis shift Evaluation after 6 months at 4 degree C (Cold Stress).,TRUE
+finalyield,float,"Yield Component, Agronomic Quality",Final Yield (raw manual),Continuous,High,0,250,,,Raw manual yield column; cleaned then merged into yield.,FALSE
+yield_total_t_ha,float,"Yield Component, Agronomic Quality",Total Yield (raw grader),Continuous,High,1,250,,,Raw grader yield column; cleaned then merged into yield.,FALSE

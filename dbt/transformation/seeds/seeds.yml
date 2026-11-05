@@ -1,0 +1,94 @@
+seeds:
+  - name: trait_dictionary
+    description: Trait Dictionary containing metadata of each traits 
+    columns:
+      - name: trait
+        data_tests:
+          - not_null
+          - unique
+
+      - name: scale
+        data_tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_scale
+              arguments:
+                values: ['Scale_1_9', 'Scale_0_100', 'Continuous', 'Categorical']
+
+      - name: data_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_data_type
+              arguments:
+                values: ['float', 'str']
+
+      - name: trait_group
+        data_tests:
+          - not_null
+
+      - name: label
+        data_tests:
+          - not_null
+
+      - name: direction
+        data_tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_direction
+              arguments:
+                values: ['High', 'Low', 'Neutral']
+
+      - name: valid_min
+      - name: valid_max
+      - name: allowed_values
+      - name: synonyms_keywords
+
+      - name: description
+        data_tests:
+          - not_null
+          
+      - name: agent_enabled
+        data_tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_agnet_flag
+              arguments:
+                values: ['TRUE', 'FALSE']
+        
+  
+  - name: location_map
+    description: "Mapping of location -> env_type (MED/NE)."
+    columns: 
+      - name: raw_location
+        data_tests:
+          - not_null
+          - unique
+
+      - name: location
+        data_tests:
+          - not_null
+
+      - name: env_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_env_type
+              arguments:
+                values: ['MED', 'NE']
+
+  
+  - name: trait_exclusions
+    description: "Traits in experiments that have all unrealistic values to be excluded from analysis"
+    columns:
+      - name: name
+        data_tests:
+          - not_null
+      
+      - name: experiment_name
+        data_tests:
+          - not_null
+      
+      - name: reason
+        data_tests:
+          - not_null

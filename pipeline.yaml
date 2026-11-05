@@ -1,7 +1,6 @@
 paths:
   incoming: data/incoming
   archive: data/archive
-  duckdb: data/potato_breeding.duckdb
 
 
 file_extensions: [".xlsx", ".xls"]

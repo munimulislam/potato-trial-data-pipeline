@@ -1,0 +1,16 @@
+sources:
+  - name: raw_trial_data
+    database: potato_breeding
+    schema: met
+    tables:
+      - name: trials
+        description: >
+          dlt loaded valid trial rows.
+
+  # - name: stg_trial_data
+  #   database: potato_breeding
+  #   schema: main
+  #   tables:
+  #     - name: stg_trials
+  #       description: >
+  #         cleaned, renamed, curated and staged trial rows.

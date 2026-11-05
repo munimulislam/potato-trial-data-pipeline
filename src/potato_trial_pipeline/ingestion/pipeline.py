@@ -1,14 +1,11 @@
 import re
 
-import dagster as dg
-from dagster_dlt import DagsterDltResource, dlt_assets
 import pandas as pd
 import dlt
 from pydantic import ValidationError
 from pathlib import Path
 from .trial import RejectedTrial, Trial
-from ..utils.config import load_config
-from ..utils.files import archive_file
+from .utils.config import load_config
 
 SYMBOL_MAP = {
     ">=": "gte ",
@@ -57,7 +54,6 @@ def load_data(file_path: str, sheet_name=0):
         row = {clean_column_name(k): v for k, v in row.items()}
         row["source_file"] = file.name
         row["source_row"] = idx
-        print(row)
 
         try:
             trial = Trial(**row).model_dump()
@@ -96,27 +92,3 @@ trial_pipeline = dlt.pipeline(
     destination=dlt.destinations.duckdb(credentials=load_config().paths.duckdb),
     dataset_name="met",
 )
-
-
-@dlt_assets(
-    dlt_source=trial_data_source(file_path="__placeholder__"),
-    group_name="trial_data",
-    dlt_pipeline=trial_pipeline,
-)
-def trials(context: dg.AssetExecutionContext, dlt: DagsterDltResource):
-    path = context.run_tags.get("file")
-
-    if path is None:
-        raise dg.Failure(f"File path missing")
-
-    file = Path(path)
-
-    if not file.exists():
-        raise dg.Failure(f"File not found: {file}")
-
-    context.log.info(f"Loading file: {file.name}")
-    trial_pipeline.drop_pending_packages()
-    yield from dlt.run(context=context, dlt_source=trial_data_source(str(file)))
-
-    archive_file(Path(load_config().paths.archive), file)
-    context.log.info(f"Archieved file: {file.name}")

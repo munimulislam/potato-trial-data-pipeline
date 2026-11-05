@@ -1,6 +1,6 @@
 [project]
 name = "potato-trial-pipeline"
-requires-python = ">=3.10,<3.15"
+requires-python = ">=3.10,<3.14"
 version = "0.1.0"
 
 dependencies = [
@@ -11,9 +11,12 @@ dependencies = [
     "openpyxl==3.1.5",
     "pydantic==2.13.5",
     "pyyaml==6.0.3",
+    "dbt==2.0.8",
+    "dagster-dbt==0.29.25",
+    "dbt-duckdb==1.11.0"
 ]
 
-[dependency-groups]
+[project.optional-dependencies]
 dev = [
     "dagster-dg-cli==1.13.25",
     "dagster-webserver==1.13.25",

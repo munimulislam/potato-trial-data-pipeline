@@ -1,8 +1,8 @@
 import dagster as dg
-from .dlt.assets import trials
-from .dlt.jobs import file_ingest
-from .dlt.sensors import incoming_file_sensor
-from .dlt.resources import dlt_resource
+from .assets import trials
+from .jobs import file_ingest
+from .sensors import incoming_file_sensor
+from .resources import dlt_resource
 
 
 @dg.definitions

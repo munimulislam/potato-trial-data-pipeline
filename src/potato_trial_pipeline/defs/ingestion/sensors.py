@@ -1,7 +1,7 @@
 import dagster as dg
 import time
-from ..utils.config import load_config
-from ..utils.files import discover_files
+from ...ingestion.utils.config import load_config
+from ...ingestion.utils.files import discover_files
 from .jobs import file_ingest
 
 
