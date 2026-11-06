@@ -89,7 +89,7 @@ models:
               arguments:
                 values: ['med', 'ne']
 
-      - name: value_avg
+      - name: value
         data_tests:
           - not_null
         
@@ -99,3 +99,71 @@ models:
           - dbt_utils.expression_is_true:
               arguments:
                 expression: ">= 1"
+
+
+  - name: fct_variety_trial_relative_performance
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - experiment_name
+              - variety
+              - trait
+      
+    columns:
+      - name: trait
+        data_tests:
+          - not_null
+
+      - name: variety
+        data_tests:
+          - not_null
+
+      - name: experiment_name
+        data_tests:
+          - not_null
+      
+      - name: year
+        data_tests:
+          - not_null
+
+      - name: location
+        data_tests:
+          - not_null
+
+      - name: env_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_env_type
+              arguments:
+                values: ['med', 'ne']
+
+      - name: plot_mean
+        data_tests:
+          - not_null
+
+      - name: experiment_mean
+        data_tests:
+          - not_null
+
+      - name: experiment_mean_pct
+        data_tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "!= 'Infinity'::DOUBLE"
+        
+      - name: n_plots
+        data_tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 1"
+
+      - name: n_varieties
+        data_tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= {{ var('min_varieties_per_trial') }}"

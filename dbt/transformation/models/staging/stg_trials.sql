@@ -20,14 +20,19 @@ loc_map AS (
     FROM {{ ref('location_map') }}
 ),
 
-exclusions AS (
+exp_exclusions AS (
+    SELECT DISTINCT LOWER(TRIM(experiment_name)) AS experiment_name
+    FROM {{ ref('experiment_exclusions') }}
+),
+
+trait_exp_exclusions AS (
     SELECT DISTINCT
         LOWER(TRIM(experiment_name))    AS experiment_name,
         LOWER(TRIM(name))               AS trait
     FROM {{ ref('trait_exclusions') }}
 ),
 
-renamed AS (
+cleaned AS (
     SELECT
         * EXCLUDE (name1, experiment_name, location, plot, year),
         LOWER(TRIM(name1))              AS variety,
@@ -36,6 +41,7 @@ renamed AS (
         CAST(plot AS BIGINT)            AS plot,
         CAST(year AS INTEGER)           AS year
     FROM source
+    WHERE experiment_name NOT IN (SELECT experiment_name FROM exp_exclusions)
 ),
 
 -- Non-trait columns: identifiers, text traits, lineage. Keep this list in sync with the
@@ -57,7 +63,7 @@ row_attributes AS (
         skincolour,
         cook_com, 
         comments
-    FROM renamed
+    FROM cleaned
 ),
 
 -- Only the plot id, the experiment key and the numeric trait columns
@@ -76,7 +82,7 @@ trait_input AS (
                     skincolour, 
                     cook_com,
                     comments)
-    FROM renamed
+    FROM cleaned
 ),
 
 -- Every numeric trait column -> one row per (plot, trait)
@@ -93,14 +99,14 @@ trait_rules AS (
         long._dlt_id,
         long.trait,
         long.raw_value,
-        x.trait IS NOT NULL                                                 AS is_excluded,
-        long.raw_value < dict.valid_min OR long.raw_value > dict.valid_max  AS is_out_of_range,
-        dict.trait IS NOT NULL
-            AND MAX(ABS(long.raw_value)) OVER (PARTITION BY long.experiment_name, long.trait) = 0
-                                                                        AS is_all_zero_experiment
-    FROM trait_long         AS long
-    LEFT JOIN dictionary    AS dict    ON LOWER(long.trait) = dict.trait
-    LEFT JOIN exclusions    AS x       ON long.experiment_name = x.experiment_name AND LOWER(long.trait) = x.trait
+        x.trait IS NOT NULL AS is_excluded,
+        long.raw_value < dict.valid_min OR long.raw_value > dict.valid_max AS is_out_of_range,
+        dict.trait IS NOT NULL AND MAX(ABS(long.raw_value)) 
+            OVER (PARTITION BY long.experiment_name, long.trait) = 0 AS is_all_zero_experiment
+    FROM trait_long AS long
+    LEFT JOIN dictionary AS dict ON LOWER(long.trait) = LOWER(dict.trait)
+    LEFT JOIN trait_exp_exclusions AS x ON LOWER(long.experiment_name) = LOWER(x.experiment_name) 
+        AND LOWER(long.trait) = x.trait
 ),
 
 trait_cleaned AS (

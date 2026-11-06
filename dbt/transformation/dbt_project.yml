@@ -23,6 +23,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
+vars:
+  min_varieties_per_trial: 3
+
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
