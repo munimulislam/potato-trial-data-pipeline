@@ -3,7 +3,7 @@ WITH source AS (
     FROM {{ ref('int_trait_plot_level') }}
 ),
 
-experiment_level_avg AS (
+experiment_level_value_avg AS (
     SELECT 
         variety, 
         experiment_name, 
@@ -17,4 +17,4 @@ experiment_level_avg AS (
     GROUP BY variety, experiment_name, trait, year, env_type, location
 )
 
-SELECT * FROM experiment_level_avg
+SELECT * FROM experiment_level_value_avg

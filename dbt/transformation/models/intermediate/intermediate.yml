@@ -9,7 +9,6 @@ models:
               - plot
               - trait
 
-
     columns:
       - name: _dlt_id
         data_tests:
@@ -50,3 +49,53 @@ models:
               name: unexpected_env_type
               arguments:
                 values: ['med', 'ne']
+
+
+  - name: int_trait_experiment_level
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - experiment_name
+              - variety
+              - trait
+
+    columns:
+      - name: trait
+        data_tests:
+          - not_null
+
+      - name: variety
+        data_tests:
+          - not_null
+
+      - name: experiment_name
+        data_tests:
+          - not_null
+      
+      - name: year
+        data_tests:
+          - not_null
+
+      - name: location
+        data_tests:
+          - not_null
+
+      - name: env_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_env_type
+              arguments:
+                values: ['med', 'ne']
+
+      - name: value_avg
+        data_tests:
+          - not_null
+        
+      - name: n_plots
+        data_tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 1"

@@ -26,7 +26,7 @@ narrowed AS (
 
 trait_unpivoted AS (
     FROM narrowed
-    UNPIVOT INCLUDE NULLS 
+    UNPIVOT
     (value FOR trait IN (COLUMNS(* EXCLUDE (_dlt_id, variety, location, env_type, experiment_name, plot, year))))
 ),
 
@@ -34,7 +34,6 @@ final_trait_long AS (
     SELECT * EXCLUDE (d.trait)
     FROM trait_unpivoted AS l
     INNER JOIN dictionary AS d ON l.trait = d.trait
-    WHERE l.value IS NOT NULL
 )
 
 SELECT * FROM final_trait_long

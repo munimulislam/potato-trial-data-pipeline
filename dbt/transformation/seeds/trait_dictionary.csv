@@ -29,7 +29,7 @@ chipcolour,str,"Processing Performance, Visual Quality",Chip Colour,Categorical,
 hunterl,float,"Colorimetry, Visual Quality",Hunter L Value,Scale_0_100,High,0,100,,"hunter l, lightness, reflectance",Lightness reflectance score.,TRUE
 huntera,float,"Colorimetry, Visual Quality",Hunter a Value,Scale_0_100,High,0,100,,"hunter a, chromaticity red green",Green-to-red axis shift.,TRUE
 hunterb,float,"Colorimetry, Visual Quality",Hunter b Value,Scale_0_100,High,0,100,,"hunter b, chromaticity yellow blue",Blue-to-yellow axis shift.,TRUE
-ffrots,float,"Field Pathology, Visual Quality",Tuber Rots,Scale_1_9,High,1,9,,"rots, soft rot, blight rot",Fungal or bacterial rots.,TRUE
+ffrots,float,"Field Pathology, Visual Quality",Tuber Rots,Scale_1_9,High,1,9,,"rots, soft rot, blight rot",Fungal or bacterial rots.,FALSE
 crisp_3m8d,float,"Processing Performance, Storage Quality",Crisp Score (3M @ 8C),Scale_1_9,High,1,9,,"crisp_3m8d, crispness, texture",Crispiness Evaluation after 3 months at 8 degree C.,TRUE
 crisp_3m4d,float,"Processing Performance, Storage Quality",Crisp Score (3M @ 4C),Scale_1_9,High,1,9,,"crisp_3m4d, crispness, texture",Crispiness Evaluation after 3 months at 4 degree C (Cold Stress).,TRUE
 crisp_6m8d,float,"Processing Performance, Storage Quality",Crisp Score (6M @ 8C),Scale_1_9,High,1,9,,"crisp_6m8d, crispness, texture",Crispiness Evaluation after 6 months at 8 degree C.,TRUE
